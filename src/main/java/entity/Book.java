@@ -1,4 +1,4 @@
-/**
+package entity; /**
  * Created by Administrator on 2017/6/24.
  */
 
@@ -32,7 +32,7 @@ public class Book implements Serializable{
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "entity.Book{" +
                 "name='" + name + '\'' +
                 ", id=" + id +
                 '}';

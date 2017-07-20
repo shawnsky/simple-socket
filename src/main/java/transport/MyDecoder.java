@@ -1,10 +1,10 @@
-/**
+package transport; /**
  * Created by Administrator on 2017/6/27.
  */
 
+import constant.Constant;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.ByteToMessageCodec;
 import io.netty.handler.codec.ByteToMessageDecoder;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class MyDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
 
-        if(byteBuf.readableBytes()<Constant.BASE_LENGTH){
+        if(byteBuf.readableBytes()< Constant.BASE_LENGTH){
             return;
         }
         //find head data
@@ -27,14 +27,14 @@ public class MyDecoder extends ByteToMessageDecoder {
         while (true){
             beginIndex = byteBuf.readerIndex();
             byteBuf.markReaderIndex();
-            if(byteBuf.readInt()==Constant.HEAD_DATA){
+            if(byteBuf.readInt()== Constant.HEAD_DATA){
                 break;
             }
 
             byteBuf.resetReaderIndex();
             byteBuf.readByte();
 
-            if(byteBuf.readableBytes()<Constant.BASE_LENGTH){
+            if(byteBuf.readableBytes()< Constant.BASE_LENGTH){
                 return;
             }
         }

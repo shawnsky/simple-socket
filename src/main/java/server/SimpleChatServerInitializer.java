@@ -1,11 +1,11 @@
+package server;
+
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.handler.codec.DelimiterBasedFrameDecoder;
-import io.netty.handler.codec.Delimiters;
-import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.timeout.IdleStateHandler;
+import transport.MyDecoder;
+import transport.MyEncoder;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class SimpleChatServerInitializer extends ChannelInitializer<SocketChannel> {
     /**
-     * 这个类用来增加多个处理类到 ChannelPipeline 上，包括编码/解码/SimpleChatServerHandler
+     * 这个类用来增加多个处理类到 ChannelPipeline 上，包括编码/解码/server.SimpleChatServerHandler
      */
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {

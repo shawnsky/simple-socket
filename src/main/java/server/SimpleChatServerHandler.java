@@ -1,9 +1,14 @@
+package server;
+
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
+import transport.MyProtocol;
+import utils.ConvertUtil;
+import utils.DateUtil;
 
 /**
  * Created by admin on 2017/5/17.
@@ -19,7 +24,7 @@ public class SimpleChatServerHandler extends SimpleChannelInboundHandler<MyProto
         Channel incoming = ctx.channel();
         channels.add(incoming);
         channels.writeAndFlush(DateUtil.getTime()+" "+incoming.remoteAddress()+" online\n");
-        System.out.println(DateUtil.getTime()+" "+ incoming.remoteAddress()+" online "+Conter.oncnt++);
+        System.out.println(DateUtil.getTime()+" "+ incoming.remoteAddress()+" online ");
 
     }
 
@@ -28,7 +33,7 @@ public class SimpleChatServerHandler extends SimpleChannelInboundHandler<MyProto
         Channel incoming = ctx.channel();
         channels.remove(incoming);
         channels.writeAndFlush(DateUtil.getTime()+" "+incoming.remoteAddress()+" offline\n");
-        System.out.println(DateUtil.getTime()+" "+ incoming.remoteAddress()+" offline "+Conter.offcnt++);
+        System.out.println(DateUtil.getTime()+" "+ incoming.remoteAddress()+" offline ");
     }
 
 

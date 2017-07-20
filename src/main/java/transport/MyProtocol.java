@@ -1,20 +1,17 @@
+package transport;
+import constant.Constant;
 /**
  * Created by Administrator on 2017/6/27.
  */
-
-/**
- * Administrator
- *
- * @author xt
- *         06-27 17:33
- **/
 
 /**
  * 自定义传输协议类
  * 传输结构:
  * 消息头headData+contentLength+contentType
  * 消息体content
+ * @author xt 06-27 17:33
  */
+
 public class MyProtocol {
 
     private int headData;

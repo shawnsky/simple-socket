@@ -1,12 +1,16 @@
-/**
+package server; /**
  * Created by Administrator on 2017/6/29.
  */
 
+import constant.Constant;
+import entity.Heartbeat;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleStateEvent;
+import transport.MyProtocol;
+import utils.ConvertUtil;
 
 /**
  * Administrator

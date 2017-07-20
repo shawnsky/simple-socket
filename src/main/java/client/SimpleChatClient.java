@@ -1,13 +1,18 @@
+package client;
+
+import constant.Constant;
+import constant.Host;
+import entity.Book;
+import entity.Heartbeat;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import transport.MyProtocol;
+import utils.ConvertUtil;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
-import java.util.concurrent.Callable;
 
 /**
  * Created by admin on 2017/5/17.

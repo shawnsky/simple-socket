@@ -1,7 +1,8 @@
-import com.sun.xml.internal.bind.v2.TODO;
+package client;
+
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.timeout.IdleStateEvent;
+import transport.MyProtocol;
 
 /**
  * Created by admin on 2017/5/17.
